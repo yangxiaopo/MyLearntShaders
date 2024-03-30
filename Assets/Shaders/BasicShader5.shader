@@ -106,7 +106,12 @@ Shader "Unlit/BasicShader5"
             fixed4 frag (v2f i) : SV_Target
             {
                 _Progress = Remap(_Progress, float2(-1, 1), float2(0, 1));//remap _Progress from Range(-1, 1) to Range(0, 1)
-
+                /*
+                More Information https://thebookofshaders.com/11/
+                More Resources:
+                https://github.com/keijiro/NoiseShader/tree/master
+                https://github.com/ronja-tutorials/ShaderTutorials
+                */
                 float alpha = Unity_SimpleNoise_float(i.uv, _Resolution);
                 clip(alpha-_Progress);
 
